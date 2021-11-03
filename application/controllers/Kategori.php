@@ -36,6 +36,7 @@ class Kategori extends CI_Controller {
     }
 
     public function save_add(){
+        $msg = "Error input";
         if($_POST['kategori_nama'] == null){
             $result = false;
             $msg = "Nama kategori tidak boleh kosong";

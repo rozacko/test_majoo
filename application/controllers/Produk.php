@@ -62,6 +62,7 @@ class Produk extends CI_Controller {
     }
 
     public function save_add(){
+        $msg = "Error Input";
         if($this->input->post('produk_nama') == null || $this->input->post('harga') == null){
             $result = false;
             $msg = "Nama dan harga tidak boleh kosong";            
@@ -128,6 +129,7 @@ class Produk extends CI_Controller {
     }
 
     public function save_edit(){
+        $msg = "Error Edit";
         // $this->echopre($_POST);die;
         // $this->echopre($_FILES);die;
         if($this->input->post('produk_nama') == null || $this->input->post('harga') == null){

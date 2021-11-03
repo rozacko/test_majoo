@@ -29,7 +29,6 @@ class Login extends CI_Controller
             $session_set = array(
                 'is_login' => true,
                 'user_id' => $is_login->id,
-                'pegawai_id' => $is_login->pegawai_id,
                 'username' => $is_login->username,
             );
             $this->session->set_userdata($session_set);
