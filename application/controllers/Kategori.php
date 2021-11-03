@@ -66,17 +66,23 @@ class Kategori extends CI_Controller {
     }
 
     public function save_edit(){
+        $msg = "Edit error";
         $id = $this->input->post('kategori_id');   
-        $data = array(
-        'kategori_kode' => str_replace(" ", "", strtoupper($this->input->post('kategori_nama'))),            
-        'kategori_nama' => $this->input->post('kategori_nama'),
-        );
-        $result = $this->Kategori_m->save_edit($data,$id);     
+        if($_POST['kategori_nama'] == null){
+            $result = false;
+            $msg = "Nama kategori tidak boleh kosong";
+        }else{
+            $data = array(
+            'kategori_kode' => str_replace(" ", "", strtoupper($this->input->post('kategori_nama'))),            
+            'kategori_nama' => $this->input->post('kategori_nama'),
+            );
+            $result = $this->Kategori_m->save_edit($data,$id);
+        }
 
         if ($result) {
             echo json_encode(1);
         } else {
-            echo json_encode(0);
+            echo json_encode($msg);
         }
 
     }

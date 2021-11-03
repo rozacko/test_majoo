@@ -67,37 +67,15 @@ class Produk extends CI_Controller {
             $result = false;
             $msg = "Nama dan harga tidak boleh kosong";            
         }else{
-            //duplicate data
-            $cek_nama = strtoupper(str_replace(" ", "", $_POST['produk_nama']));
-            $cek_nama_stts = $this->Produk_m->cek_nama($cek_nama);            
-            if(!empty($cek_nama_stts)){
-                $result = false;
-                $msg = "Nama telah tersedia";
-            }else{
-                $config['upload_path']="./assets/images"; //path folder file upload
-                $config['allowed_types']='jpg|jpeg|png'; //type file yang boleh di upload
-                $config['encrypt_name'] = TRUE; //enkripsi file name upload
-                
-                if(!empty($_FILES)){
-                    $this->load->library('upload',$config); //call library upload 
-                    if($this->upload->do_upload("file")){ //upload file
-                        $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
-                        $image= $data['upload_data']['file_name']; //set file name ke variable image
-                        $data = array(
-                            'produk_nama' => $this->input->post('produk_nama'),
-                            'deskripsi' => $this->input->post('deskripsi'),
-                            'harga' => $this->input->post('harga'),
-                            'kategori' => $this->input->post('kategori'),
-                            'gambar' => $image,
-                        );
-                        
-                        $result = $this->Produk_m->save_add($data);
-                    }else{
-                        $result = false;
-                        $msg = "Format gambar tidak sesuai";
-                    }
-                }else{
-                    $image = '';
+            $config['upload_path']="./assets/images"; //path folder file upload
+            $config['allowed_types']='jpg|jpeg|png'; //type file yang boleh di upload
+            $config['encrypt_name'] = TRUE; //enkripsi file name upload
+            
+            if(!empty($_FILES)){
+                $this->load->library('upload',$config); //call library upload 
+                if($this->upload->do_upload("file")){ //upload file
+                    $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+                    $image= $data['upload_data']['file_name']; //set file name ke variable image
                     $data = array(
                         'produk_nama' => $this->input->post('produk_nama'),
                         'deskripsi' => $this->input->post('deskripsi'),
@@ -107,8 +85,22 @@ class Produk extends CI_Controller {
                     );
                     
                     $result = $this->Produk_m->save_add($data);
+                }else{
+                    $result = false;
+                    $msg = "Format gambar tidak sesuai";
                 }
-            }            
+            }else{
+                $image = '';
+                $data = array(
+                    'produk_nama' => $this->input->post('produk_nama'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'harga' => $this->input->post('harga'),
+                    'kategori' => $this->input->post('kategori'),
+                    'gambar' => $image,
+                );
+                
+                $result = $this->Produk_m->save_add($data);
+            }         
         }
             
 

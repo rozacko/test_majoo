@@ -265,7 +265,7 @@
 	    				$('#edit_Kategori_mdl').modal('hide');
 	    				getMainTable();
 	               	} else {
-	                     toastr.error('Data gagal diperbarui', 'Failed');
+	                     toastr.error(data, 'Failed');
 	               	}
 	            }
 	        });
