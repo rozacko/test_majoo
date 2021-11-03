@@ -37,9 +37,9 @@ class List_produk extends CI_Controller {
         if(!empty($List_produk)){
             foreach ($List_produk as $k => $v) {
                 $dt_final[$i]['produk_id'] = $v['produk_id'];
-                $dt_final[$i]['produk_nama'] = strtoupper($v['produk_nama']);
+                $dt_final[$i]['produk_nama'] = '<center>'.strtoupper($v['produk_nama']).'</center>';
                 $dt_final[$i]['deskripsi'] = $v['deskripsi'];
-                $dt_final[$i]['harga'] = 'Rp. '.number_format($v['harga']);
+                $dt_final[$i]['harga'] = '<center>Rp. <b>'.number_format($v['harga']).'</b></center>';
                 $dt_final[$i]['kategori'] = strtoupper($v['kategori']);
                 if($v['gambar'] != null){
                     $dt_final[$i]['link'] = base_url().'assets/images/'.$v['gambar'];

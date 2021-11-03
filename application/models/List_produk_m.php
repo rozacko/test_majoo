@@ -10,7 +10,7 @@ class List_produk_m extends CI_Model {
             ->select('A.produk_id, A.produk_nama, A.deskripsi, A.harga, A.gambar, B.kategori_nama as kategori')
             ->from('master_produksi A')
             ->join('master_kategori B','A.kategori = B.kategori_kode','LEFT')            
-            ->order_by('A.produk_id','ASC')
+            ->order_by('A.produk_id','DESC')
             ->limit(3)
             ->get()
             ->result_array();

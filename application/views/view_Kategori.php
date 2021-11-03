@@ -18,8 +18,8 @@
 		                    <tr>
 		                        <th width="5%">#</th>
 		                        <!-- <th width="30%">Id Kategori</th> -->
-		                        <th width="20%">Kode Kategori</th>
-		                        <th width="20%">Nama Kategori</th>
+		                        <th width="45%">Kode Kategori</th>
+		                        <th width="40%">Nama Kategori</th>
 								<th width="10%">Action</th>								
 		                    </tr>
 	                    </thead>

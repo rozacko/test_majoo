@@ -19,7 +19,7 @@
 						<img class="card-img-top" src="..." alt="Card image cap" style="width: 100%;height: 200px;">
 						<div class="card-body">
 						  <h5 class="card-title">Card title</h5>
-						  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+						  <h6 class="card-subtitle">Card subtitle</h6>
 						  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 						</div>
 						<div class="card-footer">
@@ -81,7 +81,7 @@
 				        $(cards).find(".card-title").html(nama);
 				        $(cards).find(".card-subtitle").html(harga);
 				        $(cards).find(".card-text").html(deskripsi);
-				        $(cards).find(".card-footer").html("<a href='#' class='btn btn-primary'>Beli</a>");
+				        $(cards).find(".card-footer").html("<center><a href='#' class='btn btn-primary'>Beli</a></center>");
 				        $(cards).show() //show cards
 				        $(cards).appendTo($(".card-deck")) //append to container
 	                    // html += '<option value='+data[i].pegawai_nomor+'>'+data[i].pegawai_nama+'</option>';
